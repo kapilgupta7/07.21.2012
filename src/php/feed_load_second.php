@@ -7,8 +7,7 @@
   $_GET['last_msg_id'] = $last_msg_id; 
   include('feed_query.php');
   $sql = $_GET['sql'];
-  //$last_msg_id="";
-
+echo "loading secong";
   while($row = mysql_fetch_array($sql)) {	
     $_GET['event_info'] = $row;
     include("eventBox_feed.php");

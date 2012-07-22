@@ -67,12 +67,19 @@ function popitup(url) {
 		}
 ?>
   </div>
+  <?php if(isset($_SESSION['LOGGEDIN']) && $_SESSION['LOGGEDIN']==1)
+		
+		 {
+?>
   <div id="searchBoxOne" style="padding-left:300px;">
 <form action="/src/php/search.php" method="post" class="searchform">
-	<input class="searchfield" type="text" name="term" id="term" value="Search..." onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}">
+	<input class="searchfield" type="text" name="term" id="term" value="Search for hashtags or keywords" onfocus="if (this.value == 'Search for hashtags or keywords') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search for hashtags or keywords';}">
 	<input type="submit" class="searchbutton" type="button" value="Go">
 </form>
 </div>
+<?php
+		}
+?>
 
   <br>
   </div>

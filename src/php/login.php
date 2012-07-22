@@ -88,12 +88,19 @@ session_start();
                 <h2><strong>New to WhingIt?</strong>             
                    				
 					<button type="submit" class="btn signup-btn" onclick='window.location="./src/php/register.php"'>
-                    Sign up for WhingIt
+                    Signup for WhingIt
                   </button>
-				  
-				</h2><button type="submit" class="submit btn primary-btn flex-table-btn js-submit" tabindex="0">
-				<?php include("/src/php/facebook_button.php") ?>
-				Sign in with Facebook</button>
+				</h2>
+				<div>
+				<div style="text-align:left;">
+					<h2><strong>Or choose facebook </strong></h2>
+				</div>
+					<div style="text-align:right;padding-right:18px;">
+						<?php include("/src/php/facebook_button.php") ?>
+					</div>
+				</div>
+				
+				
             </div>
 			</div>
 		</div>

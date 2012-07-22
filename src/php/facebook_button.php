@@ -1,5 +1,5 @@
 
-    <div id="fb-root"></div>
+    <div id="fb-root" ></div>
     <script>
       // Load the SDK Asynchronously
       (function(d){
@@ -70,7 +70,7 @@
 
       <div id="auth-status">
         <div id="auth-loggedout">
-          <fb:login-button scope="email,user_birthday,user_location"></fb:login-button>
+          <fb:login-button scope="email,user_birthday,user_location" size="large"></fb:login-button>
 
         </div>
         <div id="auth-loggedin" style="display:none">

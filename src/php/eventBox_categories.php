@@ -18,26 +18,30 @@ function attending(eventID, status)
 		{
 			if(xmlhttp.responseText == "FAILURE")
 				alert(xmlhttp.responseText);
-		}
-    else {
-        var elem = document.getElementById('attend'+eventID);
-        var parent = elem.parentNode;
-        var newNode = document.createElement("div");
-        
-        if(status == 1) {
-          var aTag = "<a href=\"#\" action=\"attending.php\" onclick=\"attending("+eventID+", 2);return false;\" > Not Attending </a>";
-          newNode.innerHTML = "<div id =\"attend"+eventID+"\"	> <span><b> Attending </b></span> | " + aTag + "</div>";
-        }
-        else {
-          var aTag = "<a href=\"#\" action=\"attending.php\" onclick=\"attending("+eventID+", 1);return false;\" > Attending </a>";
-          newNode.innerHTML = "<div id =\"attend"+eventID+"\"	>"+aTag+ " | <span><b> Not Attending </b></span></div>";
-        }
+		
+			else {
+					var elem = document.getElementById('attend'+eventID);
+					var parent = elem.parentNode;
+					var newNode = document.createElement("div");
+					
+					if(status == 1) {
+					  var aTag = "<a href=\"#\" action=\"attending.php\" onclick=\"attending("+eventID+", 2);return false;\" > Not Attending </a>";
+					  newNode.innerHTML = "<div id =\"attend"+eventID+"\"	> <span><b> Attending </b></span> | " + aTag + "</div>";
+					}
+					else {
+					  var aTag = "<a href=\"#\" action=\"attending.php\" onclick=\"attending("+eventID+", 1);return false;\" > Attending </a>";
+					  newNode.innerHTML = "<div id =\"attend"+eventID+"\"	>"+aTag+ " | <span><b> Not Attending </b></span></div>";
+					}
 
-        parent.replaceChild(newNode,elem);
-       
-      }
+					parent.replaceChild(newNode,elem);
+				   
+				}
+		}
+		
 	}
+	
 	xmlhttp.open("GET","/src/php/attending.php?eventID="+eventID+"&status="+status,true);
+	xmlhttp.timeout = 100000;
 	xmlhttp.send();
 }
 
@@ -59,7 +63,7 @@ function attending(eventID, status)
   $maybe = 3;
 ?>
 
-<div class="eventbox eventbox_feed" id="<?php echo $id; ?>">
+<div class="eventbox eventbox_feed" id="<?php echo $eventfeed_row['maxfeedID']; ?>">
 <a href="/src/php/displayEvent.php?eventId=<?php echo $id?>" rel="facebox" class="lbOn" title="Click for details!" >
 <img  src="/src/php/image.php?eid=<?php echo $id;?>" width="70" height="70" style="margin: 5px 10px 10px 0px; float:left;vertical-align: bottom;"> </a>
 <a href="/src/php/displayEvent.php?eventId=<?php echo $id?>" rel="facebox" class="lbOn" title="Click for details!" >
@@ -74,7 +78,9 @@ function attending(eventID, status)
  <div id = "attend<?php echo $id ?>" >
 <?php
      $currentStatus = mysql_query("SELECT status FROM attend WHERE attend.id=$id AND attend.attendee=$userID");
-	$totalRows = mysql_num_rows($currentStatus);
+	 $totalRows = 0;
+	 if(isset($currentStatus) && !empty($currentStatus))
+		$totalRows = mysql_num_rows($currentStatus);
 
 	if($totalRows != 0)
 		{
@@ -107,9 +113,5 @@ function attending(eventID, status)
 	   }
 ?>
 </div>
-<!--<a href="#" action="attending.php" onclick="attending(<?php echo $id; ?>, <?php echo $maybe; ?>)"> Maybe </a> | -->
-<!--<button onclick="attending()"> Attending </button>
-<button onclick="notAttending()"> Not Attending </button>
-<button onclick="maybe()"> Maybe </button>
--->
+
 </div>
