@@ -109,7 +109,7 @@ if($worked){
 
 	  } 
 	
-	$_SESSION['createEvent']=1;
+	$_SESSION['msg']="Event Created!";
 	header("Location: ../../index.php");
 
 

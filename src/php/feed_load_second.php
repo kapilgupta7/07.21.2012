@@ -12,5 +12,6 @@
   while($row = mysql_fetch_array($sql)) {	
     $_GET['event_info'] = $row;
     include("eventBox_feed.php");
+	
   }
 ?>

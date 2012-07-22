@@ -10,6 +10,8 @@
 
   while($row = mysql_fetch_array($sql)) {	
     $_GET['event_info'] = $row;
+	$eventID = $row['eventID'];
     include("eventBox_feed.php");
+	
   }
 ?>

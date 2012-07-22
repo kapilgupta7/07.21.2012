@@ -91,8 +91,9 @@ session_start();
                     Sign up for WhingIt
                   </button>
 				  
-				</h2>
-				<button type="submit" class="submit btn primary-btn flex-table-btn js-submit" tabindex="0">Sign in with Facebook</button>
+				</h2><button type="submit" class="submit btn primary-btn flex-table-btn js-submit" tabindex="0">
+				<?php include("/src/php/facebook_button.php") ?>
+				Sign in with Facebook</button>
             </div>
 			</div>
 		</div>
