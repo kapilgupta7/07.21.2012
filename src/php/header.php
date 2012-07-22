@@ -19,6 +19,14 @@
   <script type="text/javascript" src="/src/javascript/loadscroll.js"></script>
   <script type="text/javascript" src="/src/javascript/check.js"></script>
   <script type="text/javascript" src="/src/javascript/feed_updates.js"></script>
+  <link href="/src/css/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/src/javascript/facebox.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $('a[rel*=facebox]').facebox() 
+    })
+</script>
   <script type="text/javascript">
     animatedcollapse.addDiv('countdown_outer', 'fade=1,speed=300')
     animatedcollapse.addDiv('feed_outer', 'fade=1,speed=300')

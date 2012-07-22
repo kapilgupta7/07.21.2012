@@ -54,7 +54,7 @@ session_start();
 				<div class="front-signin js-front-signin">
                 <form action="./src/php/getin.php" method="post" name="login_user" >
                   <div class="placeholding-input username">
-                    <input type="text" value="Your edu email" class="text-input email-input" name="email" id="Email" title="Username or email" autocomplete="on" onclick="javascript:document.login_user.Email.value='';" >
+                    <input type="text" value="Your edu email" class="text-input email-input" name="email" id="Email" title="Username or email" autocomplete="on" onclick="javascript:if(document.login_user.Email.value == 'Your edu email')document.login_user.Email.value='';" >
                   </div>
           
                   <table class="flex-table password-signin">
@@ -62,7 +62,7 @@ session_start();
                       <tr>
                         <td class="flex-table-primary">
                           <div class="placeholding-input password flex-table-form">
-                            <input type="password" class="text-input flex-table-input" name="password" id="Passwd" title="Password" onclick="javascript:document.login_user.password.value='';">
+                            <input type="password" class="text-input flex-table-input" name="password" id="Passwd" title="Password" onclick="javascript:if(document.login_user.password.value=='Password')document.login_user.password.value='';">
                           
 						  </div>
                         </td>
